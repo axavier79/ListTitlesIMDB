@@ -47,8 +47,12 @@ public class IMDbTitlesFile {
 
             GZInputStream = new GZIPInputStream(arrayInputStream);
 
-            while (tamParte < data.length) {
+            int contadorTeste = 1;
+            while (contadorTeste < 100) {
+//            while (tamParte < data.length) {
 
+                contadorTeste++;
+                
                 int read = GZInputStream.read(readBuffer, 0, tamParte);
                 //Should hold the original (reconstructed) data
                 byte[] result = Arrays.copyOf(readBuffer, read);

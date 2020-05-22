@@ -97,6 +97,8 @@ public class Files implements FilesInterface{
             //String que irá receber cada linha do arquivo
             String linha = "";
 
+            createFile(filePath, titleFileName, "titles", true);
+            
             //Fazemos um loop linha a linha no arquivo,
             // enquanto ele seja diferente de null.
             //O método readLine() devolve a linha na
@@ -107,7 +109,7 @@ public class Files implements FilesInterface{
                     region = linha.split("\t")[3];
                     if (region.equalsIgnoreCase(regionToCapture)) {
                         title = linha.split("\t")[2];
-                        createFile(filePath, titleFileName, title + "\n", true);
+                        createFile(filePath, titleFileName, title, true);
                         System.out.println("Gravado: " + contGravado);
                         contGravado++;
                     }
