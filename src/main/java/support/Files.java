@@ -13,13 +13,9 @@ import java.util.logging.Logger;
  *
  * @author yank.anderson
  */
-public class Files {
+public class Files implements FilesInterface{
 
-    public static void main(String[] args) {
-        readFileAndCaptureUSMovieTitles("logs\\", "teste.txt");
-    }
-
-    public static void createFile(
+    public void createFile(
             String filePath,
             String fileName,
             String text,
@@ -59,7 +55,7 @@ public class Files {
         }
     }
 
-    public static void readFileAndCaptureUSMovieTitles(String filePath, String fileName) {
+    public void readFileAndCaptureUSMovieTitles(String filePath, String fileName) {
         String region = "";
         String title = "";
         FileReader fileReader = null;

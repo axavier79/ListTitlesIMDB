@@ -6,14 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 import support.Files;
 
 /**
  *
- * @author axavi
+ * @author Anderson Xavier
  */
 public class IMDbTitlesFile {
 
@@ -22,6 +20,7 @@ public class IMDbTitlesFile {
         int tamanhoTotal = 400000000; //cerca de 400MB
         int tamParaLeitura = 1500; //cerca de 1,5MB
         int tamParte = tamParaLeitura;
+        Files files = new Files();
 
         try {
             InputStream in = connection.getInputStream();
@@ -53,8 +52,8 @@ public class IMDbTitlesFile {
 
                 String message = new String(result, "UTF-8");
 
-                Files.createFile("logs\\", "teste.txt", message, false);
-                System.out.println(tamParte);
+                files.createFile("files\\", "teste.txt", message, false);
+//                System.out.println(tamParte);
 
                 tamParte += tamParaLeitura;
             }

@@ -29,6 +29,8 @@ public class Main {
         IMDbTitlesFile downloadFile = new IMDbTitlesFile();
         downloadFile.downloadIMDbTitlesFile(connection);
         
+        
+        
         if(http.disconnect(connection)){
             System.out.println("Desconectou!");
         } else {
