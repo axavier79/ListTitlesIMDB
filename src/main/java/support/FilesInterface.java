@@ -10,7 +10,14 @@ public interface FilesInterface {
             String fileName,
             String text,
             boolean isNewLine);
-    public void readFileAndCaptureUSMovieTitles(
+    
+    public void readFileAndCaptureMovieTitles(
             String filePath, 
+            String fileName,
+            String fileToBeRead,
+            String region);
+    
+    public void deleteFile(
+            String filePath,
             String fileName);
 }

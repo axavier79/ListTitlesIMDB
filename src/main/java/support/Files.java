@@ -14,6 +14,19 @@ import java.util.logging.Logger;
  * @author yank.anderson
  */
 public class Files implements FilesInterface{
+    public static void main(String[] args) {
+        String imdbListName = "IMDBList.txt";
+        String titlesListName = "TitlesList.txt";
+        String folderName = "files\\";
+        String regionName = "US";
+        
+        Files files = new Files();
+        files.readFileAndCaptureMovieTitles(
+                folderName, 
+                imdbListName, 
+                titlesListName, 
+                regionName);
+    }
 
     public void createFile(
             String filePath,
@@ -37,7 +50,7 @@ public class Files implements FilesInterface{
             }
         }
         try {
-            out = new FileWriter(fileLog, isNewLine); //true É PARA SEMPRE INCLUIR UMA NOVA LINHA QUANDO O ARQUIVO FOR UTILIZADO
+            out = new FileWriter(fileLog, true); //true É PARA SEMPRE INCLUIR UMA NOVA LINHA QUANDO O ARQUIVO FOR UTILIZADO
         } catch (IOException ex) {
             Logger.getLogger(Files.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -55,14 +68,18 @@ public class Files implements FilesInterface{
         }
     }
 
-    public void readFileAndCaptureUSMovieTitles(String filePath, String fileName) {
+    public void readFileAndCaptureMovieTitles(
+            String filePath,
+            String fileToBeRead,
+            String titleFileName,
+            String regionToCapture) {
+        
         String region = "";
         String title = "";
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
-        String titleFileName = "testTitles.txt";
         File titleFile = new File(filePath + titleFileName);
-        int contLido = 1;
+//        int contLido = 1;
         int contGravado = 1;
 
         if (titleFile.exists()) {
@@ -71,7 +88,7 @@ public class Files implements FilesInterface{
 
         try {
             //Indicamos o arquivo que será lido
-            fileReader = new FileReader(filePath + fileName);
+            fileReader = new FileReader(filePath + fileToBeRead);
 
             //Criamos o objeto bufferReader que nos
             // oferece o método de leitura readLine()
@@ -88,14 +105,14 @@ public class Files implements FilesInterface{
                 try {
                     //Capturar o título do filme
                     region = linha.split("\t")[3];
-                    if (region.equals("US")) {
+                    if (region.equalsIgnoreCase(regionToCapture)) {
                         title = linha.split("\t")[2];
-                        createFile("logs\\", titleFileName, title + "\n", true);
+                        createFile(filePath, titleFileName, title + "\n", true);
                         System.out.println("Gravado: " + contGravado);
                         contGravado++;
                     }
-                    System.out.println("Lido: " + contLido);
-                    contLido++;
+//                    System.out.println("Lido: " + contLido);
+//                    contLido++;
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -120,6 +137,15 @@ public class Files implements FilesInterface{
             }
         }
 
+    }
+
+    @Override
+    public void deleteFile(String filePath, String fileName) {
+        File fileToDelete = new File(filePath, fileName);
+        
+        if(!fileToDelete.exists()){
+            fileToDelete.delete();
+        }
     }
 
 }

@@ -15,7 +15,11 @@ import support.Files;
  */
 public class IMDbTitlesFile {
 
-    public void downloadIMDbTitlesFile(HttpURLConnection connection) {
+    public void downloadIMDbTitlesFile(
+            HttpURLConnection connection,
+            String folderName,
+            String imdbListName) {
+
         //Read the results from the server
         int tamanhoTotal = 400000000; //cerca de 400MB
         int tamParaLeitura = 1500; //cerca de 1,5MB
@@ -52,14 +56,14 @@ public class IMDbTitlesFile {
 
                 String message = new String(result, "UTF-8");
 
-                files.createFile("files\\", "teste.txt", message, false);
-//                System.out.println(tamParte);
+                files.createFile(folderName, imdbListName, message, false);
+                System.out.println(tamParte);
 
                 tamParte += tamParaLeitura;
             }
             GZInputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
-        } 
+        }
     }
 }
