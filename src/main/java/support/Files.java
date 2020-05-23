@@ -118,8 +118,8 @@ public class Files implements FilesInterface {
                         filePath, 
                         titleFileName);
                 
-                if (contador % 100000 == 0){
-                    System.out.println("Filtrando...");
+                if (contador % 50000 == 0){
+                    System.out.println("Status: Filtrando...");
                 }
             }
         } catch (IOException e) {
@@ -174,7 +174,7 @@ public class Files implements FilesInterface {
                 createFile(filePath, titleFileName, title, true);
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Status: Fim do arquivo.");
         }
     }
 
@@ -189,10 +189,10 @@ public class Files implements FilesInterface {
     public void deleteFile(String filePath, String fileName) {
         File fileToDelete = new File(filePath, fileName);
 
-        System.out.println("Excluindo arquivo baixado do site...");
+        System.out.println("Status: Excluindo arquivo baixado do site...");
         if (!fileToDelete.exists()) {
             fileToDelete.delete();
-            System.out.println("Arquivo excluído com sucesso!");
+            System.out.println("Status: Arquivo excluído com sucesso!");
         }
     }
 

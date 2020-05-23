@@ -33,7 +33,7 @@ public class CreateListOfTitles {
         
         Files files = new Files();
         
-        System.out.println("Filtrando a lista...");
+        System.out.println("Status: Filtrando a lista...");
         files.readFile(
                 listPath, 
                 fileToBeRead, 

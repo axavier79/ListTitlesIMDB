@@ -57,7 +57,7 @@ public class HTTP implements HTTPInterface {
     public boolean disconnect(HttpURLConnection connection) {
 
         try {
-            System.out.println("Efetuando desconexão com o site...");
+            System.out.println("Status: Efetuando desconexão com o site...");
             connection.disconnect();
             connection = null;
 

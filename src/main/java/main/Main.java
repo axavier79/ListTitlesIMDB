@@ -35,16 +35,16 @@ public class Main {
         String regionName = "US";
         Files fileToDelete = new Files();
 
-        System.out.println("Conectando ao site...");
+        System.out.println("Status: Conectando ao site...");
         try {
             connection = http.connect(new URL(address));
-            System.out.println("Conectado.");
+            System.out.println("Status: Conectado.");
         } catch (MalformedURLException ex) {
             System.out.println("ERRO AO CONECTAR!");
             ex.printStackTrace();
         }
 
-        System.out.println("Iniciando o download do arquivo...");
+        System.out.println("Status: Iniciando o download do arquivo...");
         IMDbTitlesFile downloadFile = new IMDbTitlesFile();
         downloadFile.downloadIMDbTitlesFile(
                 connection, 
@@ -60,7 +60,7 @@ public class Main {
         fileToDelete.deleteFile(folderName, imdbListName);
         
         if (http.disconnect(connection)) {
-            System.out.println("Desconectado!");
+            System.out.println("Status: Desconectado!");
         } else {
             System.out.println("OCORRIDO ERRO AO DESCONECTAR");
         }
