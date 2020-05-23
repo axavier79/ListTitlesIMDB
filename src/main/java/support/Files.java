@@ -101,24 +101,16 @@ public class Files implements FilesInterface {
         }
 
         try {
-            //Indicamos o arquivo que será lido
             fileReader = new FileReader(filePath + fileToBeRead);
 
-            //Criamos o objeto bufferReader que nos
-            // oferece o método de leitura readLine()
             bufferedReader = new BufferedReader(fileReader);
 
-            //String que irá receber cada linha do arquivo
             String linha = "";
 
             createFile(filePath, titleFileName, "titles", true);
 
             int contador = 1;
-            
-            //Fazemos um loop linha a linha no arquivo,
-            // enquanto ele seja diferente de null.
-            //O método readLine() devolve a linha na
-            // posicao do loop para a variavel linha.
+
             while ((linha = bufferedReader.readLine()) != null) {
                 captureMovieTitle(
                         linha, 
@@ -133,7 +125,7 @@ public class Files implements FilesInterface {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            //liberamos o fluxo dos objetos ou fechamos o arquivo
+
             if (fileReader != null) {
                 try {
                     fileReader.close();
@@ -174,20 +166,13 @@ public class Files implements FilesInterface {
         
         String title = "";
         String region = "";
-//        int contLido = 1;
-//        int contGravado = 1;
         
         try {
-            //Capturar o título do filme
             region = linha.split("\t")[3];
             if (region.equalsIgnoreCase(regionToCapture)) {
                 title = linha.split("\t")[2];
                 createFile(filePath, titleFileName, title, true);
-//                System.out.println("Gravado: " + contGravado);
-//                contGravado++;
             }
-//                    System.out.println("Lido: " + contLido);
-//                    contLido++;
         } catch (Exception e) {
             System.out.println(e);
         }

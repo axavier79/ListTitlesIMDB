@@ -27,13 +27,9 @@ public class HTTP implements HTTPInterface {
         HttpURLConnection connection = null;
 
         try {
-            // Set up the initial connection
             connection = (HttpURLConnection) url.openConnection();
-            // Default is GET
             connection.setRequestMethod("GET");
-            // Default is false, change it...
             connection.setDoOutput(true);
-            // Default is infinity (0), this is in ms
             connection.setReadTimeout(10000);
 
             connection.connect();
@@ -60,7 +56,6 @@ public class HTTP implements HTTPInterface {
     @Override
     public boolean disconnect(HttpURLConnection connection) {
 
-        //close the connection, set all objects to null
         try {
             System.out.println("Efetuando desconexão com o site...");
             connection.disconnect();

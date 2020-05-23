@@ -36,7 +36,6 @@ public class IMDbTitlesFile {
             String folderName,
             String imdbListName) {
 
-        //Read the results from the server
         int tamanhoTotal = 400000000; //cerca de 400MB
         int tamParaLeitura = 1500; //cerca de 1,5MB
         int tamParte = tamParaLeitura;
@@ -65,11 +64,10 @@ public class IMDbTitlesFile {
 
             System.out.println("Iniciando descompactação do arquivo...");
             int contador = 1;
-//            while (contador < 100) {
             while (tamParte < data.length) {
                 
                 int read = GZInputStream.read(readBuffer, 0, tamParte);
-                //Should hold the original (reconstructed) data
+
                 byte[] result = Arrays.copyOf(readBuffer, read);
 //                byte[] result = Arrays.copyOf(readBuffer, data.length);
 
