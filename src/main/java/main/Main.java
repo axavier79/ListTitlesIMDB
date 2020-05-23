@@ -62,7 +62,7 @@ public class Main {
 
         JOptionPane.showMessageDialog(
                 null,
-                "Lista de títulos gerada na pasta do projeto, no caminho: "
+                "Lista de títulos gerada na pasta do projeto, no arquivo: "
                 + folderName + titlesListName,
                 "CONCLUÍDO", 
                 JOptionPane.INFORMATION_MESSAGE
