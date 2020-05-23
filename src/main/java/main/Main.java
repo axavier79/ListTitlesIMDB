@@ -6,23 +6,24 @@ import files.IMDbTitlesFile;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.swing.JOptionPane;
 import support.Files;
 
 /**
  *
  * @author Anderson Xavier - 22/05/2020
  *
- * Classe principal contendo o método:
- * main - responsável pelo fluxo de execução.
+ * Classe principal contendo o método: main - responsável pelo fluxo de
+ * execução.
  *
  */
 public class Main {
 
     /**
      * Método responsável pelo fluxo de execução.
-     * 
+     *
      * @param args Args
-     * 
+     *
      */
     public static void main(String[] args) {
         HTTP http = new HTTP();
@@ -47,7 +48,7 @@ public class Main {
         System.out.println("Status: Iniciando o download do arquivo...");
         IMDbTitlesFile downloadFile = new IMDbTitlesFile();
         downloadFile.downloadIMDbTitlesFile(
-                connection, 
+                connection,
                 folderName,
                 imdbListName);
 
@@ -58,7 +59,15 @@ public class Main {
                 regionName);
 
         fileToDelete.deleteFile(folderName, imdbListName);
-        
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Lista de títulos gerada na pasta do projeto, no caminho: "
+                + folderName + titlesListName,
+                "CONCLUÍDO", 
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
         if (http.disconnect(connection)) {
             System.out.println("Status: Desconectado!");
         } else {
