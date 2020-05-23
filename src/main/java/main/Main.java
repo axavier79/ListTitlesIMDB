@@ -6,6 +6,7 @@ import files.IMDbTitlesFile;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.swing.JOptionPane;
 import support.Files;
 
 /**
@@ -58,6 +59,14 @@ public class Main {
                 regionName);
 
         fileToDelete.deleteFile(folderName, imdbListName);
+        
+        JOptionPane.showMessageDialog(
+                null,
+                "Lista de títulos gerada na pasta do projeto, no arquivo: "
+                + folderName + titlesListName,
+                "CONCLUÍDO", 
+                JOptionPane.INFORMATION_MESSAGE
+        );
         
         if (http.disconnect(connection)) {
             System.out.println("Status: Desconectado!");
