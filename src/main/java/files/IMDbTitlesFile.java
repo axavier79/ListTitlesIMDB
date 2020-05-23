@@ -63,7 +63,7 @@ public class IMDbTitlesFile {
 
             GZInputStream = new GZIPInputStream(arrayInputStream);
 
-            System.out.println("Iniciando descompactação do arquivo...");
+            System.out.println("Status: Iniciando descompactação do arquivo...");
             int contador = 1;
 //            while (contador < 100) {
             while (tamParte < data.length) {
@@ -76,17 +76,16 @@ public class IMDbTitlesFile {
                 String message = new String(result, "UTF-8");
 
                 files.createFile(folderName, imdbListName, message, false);
-                System.out.println(tamParte);
 
                 tamParte += tamParaLeitura;
                 
                 contador++;
                 if (contador % 100000 == 0){
-                    System.out.println("Descompactando...");
+                    System.out.println("Status: Descompactando...");
                 }
             }
             GZInputStream.close();
-            System.out.println("Descompactação concluída.");
+            System.out.println("Status: Descompactação concluída.");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -62,7 +62,7 @@ public class HTTP implements HTTPInterface {
 
         //close the connection, set all objects to null
         try {
-            System.out.println("Efetuando desconexão com o site...");
+            System.out.println("Status: Efetuando desconexão com o site...");
             connection.disconnect();
             connection = null;
 

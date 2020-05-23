@@ -127,7 +127,7 @@ public class Files implements FilesInterface {
                         titleFileName);
                 
                 if (contador % 100000 == 0){
-                    System.out.println("Filtrando...");
+                    System.out.println("Status: Filtrando...");
                 }
             }
         } catch (IOException e) {
@@ -204,10 +204,10 @@ public class Files implements FilesInterface {
     public void deleteFile(String filePath, String fileName) {
         File fileToDelete = new File(filePath, fileName);
 
-        System.out.println("Excluindo arquivo baixado do site...");
+        System.out.println("Status: Excluindo arquivo baixado do site...");
         if (!fileToDelete.exists()) {
             fileToDelete.delete();
-            System.out.println("Arquivo excluído com sucesso!");
+            System.out.println("Status: Arquivo excluído com sucesso!");
         }
     }
 
