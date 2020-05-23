@@ -112,12 +112,14 @@ public class Files implements FilesInterface {
             int contador = 1;
 
             while ((linha = bufferedReader.readLine()) != null) {
+                
                 captureMovieTitle(
                         linha, 
                         regionToCapture, 
                         filePath, 
                         titleFileName);
                 
+                contador++;
                 if (contador % 50000 == 0){
                     System.out.println("Status: Filtrando...");
                 }
