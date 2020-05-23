@@ -126,7 +126,7 @@ public class Files implements FilesInterface {
                         filePath, 
                         titleFileName);
                 
-                if (contador % 100000 == 0){
+                if (contador % 50000 == 0){
                     System.out.println("Status: Filtrando...");
                 }
             }
@@ -189,7 +189,7 @@ public class Files implements FilesInterface {
 //                    System.out.println("Lido: " + contLido);
 //                    contLido++;
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Status: Fim do arquivo.");
         }
     }
 

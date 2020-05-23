@@ -80,7 +80,7 @@ public class IMDbTitlesFile {
                 tamParte += tamParaLeitura;
                 
                 contador++;
-                if (contador % 100000 == 0){
+                if (contador % 50000 == 0){
                     System.out.println("Status: Descompactando...");
                 }
             }
