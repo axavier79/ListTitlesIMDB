@@ -5,7 +5,9 @@ import java.net.URL;
 
 /**
  *
- * @author axavi
+ * @author Anderson Xavier
+ * 
+ * Interface para implementação dos métodos de conexão e desconexão com o site IMDb.
  */
 public interface HTTPInterface {
     public HttpURLConnection connect(URL url);

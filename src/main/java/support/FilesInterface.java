@@ -2,7 +2,10 @@ package support;
 
 /**
  *
- * @author axavi
+ * @author Anderson Xavier
+ * 
+ * Interface para implementação dos métodos para criação de arquivo, leitura e
+ * captura de informações em arquivo e exclusão de arquivo.
  */
 public interface FilesInterface {
     public void createFile(
@@ -11,7 +14,7 @@ public interface FilesInterface {
             String text,
             boolean isNewLine);
     
-    public void readFileAndCaptureMovieTitles(
+    public void readFile(
             String filePath, 
             String fileName,
             String fileToBeRead,

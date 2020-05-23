@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package support;
 
 import org.junit.After;
@@ -38,18 +33,6 @@ public class FilesTest {
     }
 
     /**
-     * Test of main method, of class Files.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        Files.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of createFile method, of class Files.
      */
     @Test
@@ -76,7 +59,7 @@ public class FilesTest {
         String titleFileName = "";
         String regionToCapture = "";
         Files instance = new Files();
-        instance.readFileAndCaptureMovieTitles(filePath, fileToBeRead, titleFileName, regionToCapture);
+        instance.readFile(filePath, fileToBeRead, titleFileName, regionToCapture);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

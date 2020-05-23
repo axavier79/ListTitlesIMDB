@@ -12,9 +12,25 @@ import support.Files;
 /**
  *
  * @author Anderson Xavier
+ * 
+ * Classe contendo o método:
+ * downloadIMDbTitlesFile - responsável por efetuar o download do 
+ * arquivo title.akas.tsv.gz dosite IMDb.
+ * 
  */
 public class IMDbTitlesFile {
 
+    /**
+     * Método responsável por efetuar o download do arquivo 
+     * title.akas.tsv.gz dosite IMDb.
+     * @param connection - Recebe um objeto HttpURLConnection contendo a conexão
+     * com o site IMDb.
+     * @param folderName - Recebe um String contendo o endereço da pasta onde
+     * o arquivo baixado será gravado.
+     * @param imdbListName - Recebe um String contendo o nome com o qual o 
+     * arquivo será gravado.
+     * 
+     */
     public void downloadIMDbTitlesFile(
             HttpURLConnection connection,
             String folderName,
@@ -47,11 +63,10 @@ public class IMDbTitlesFile {
 
             GZInputStream = new GZIPInputStream(arrayInputStream);
 
-            int contadorTeste = 1;
-            while (contadorTeste < 100) {
-//            while (tamParte < data.length) {
-
-                contadorTeste++;
+            System.out.println("Iniciando descompactação do arquivo...");
+            int contador = 1;
+//            while (contador < 100) {
+            while (tamParte < data.length) {
                 
                 int read = GZInputStream.read(readBuffer, 0, tamParte);
                 //Should hold the original (reconstructed) data
@@ -64,8 +79,14 @@ public class IMDbTitlesFile {
                 System.out.println(tamParte);
 
                 tamParte += tamParaLeitura;
+                
+                contador++;
+                if (contador % 100000 == 0){
+                    System.out.println("Descompactando...");
+                }
             }
             GZInputStream.close();
+            System.out.println("Descompactação concluída.");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

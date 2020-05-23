@@ -1,8 +1,6 @@
 package connection;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -10,10 +8,20 @@ import java.net.URL;
 
 /**
  *
- * @author axavi
+ * @author Anderson Xavier
+ *
+ * Classe contendo os métodos: connect - responsável por efetuar a conexão com o
+ * site IMDb. disconnect - responsável por efetuar a desconexão com o site IMDb.
+ *
  */
 public class HTTP implements HTTPInterface {
 
+    /**
+     * Método responsável por efetuar a conexão com o site.
+     *
+     * @param url - Recebe o endereço URL para efetuar a conexão.
+     * @return Retorna um objeto HttpURLConnection contendo a conexão criada.
+     */
     @Override
     public HttpURLConnection connect(URL url) {
         HttpURLConnection connection = null;
@@ -41,18 +49,28 @@ public class HTTP implements HTTPInterface {
         return connection;
     }
 
+    /**
+     * Método responsável por efetuar a desconexão com o site.
+     *
+     * @param connection - Recebe o objeto HttpURLConnection contendo a conexão
+     * a ser desconectada.
+     * @return true - caso a desconexão seja efetuada com sucesso. false - caso
+     * a desconexão falhe.
+     */
     @Override
     public boolean disconnect(HttpURLConnection connection) {
+
         //close the connection, set all objects to null
         try {
+            System.out.println("Efetuando desconexão com o site...");
             connection.disconnect();
             connection = null;
-            
+
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return false;
     }
 
