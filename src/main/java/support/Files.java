@@ -126,6 +126,7 @@ public class Files implements FilesInterface {
                         filePath, 
                         titleFileName);
                 
+                contador++;
                 if (contador % 50000 == 0){
                     System.out.println("Status: Filtrando...");
                 }
