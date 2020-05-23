@@ -206,7 +206,7 @@ public class Files implements FilesInterface {
         File fileToDelete = new File(filePath, fileName);
 
         System.out.println("Status: Excluindo arquivo baixado do site...");
-        if (!fileToDelete.exists()) {
+        if (fileToDelete.exists()) {
             fileToDelete.delete();
             System.out.println("Status: Arquivo excluído com sucesso!");
         }
